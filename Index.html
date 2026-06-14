@@ -118,6 +118,84 @@
     ul { list-style: none; }
 
     ::selection { background: var(--gold-dim); color: var(--gold-light); }
+    /* ==========================================================================
+   CORE STRENGTHS ANIMATED EMOJI LAYOUT
+   ========================================================================== */
+
+/* The main container wrapper from your HTML screenshot */
+.core-strengths {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Individual chip items - matches your layout */
+.strength-chip {
+    display: inline-flex;
+    align-items: center; /* Vertically centers the text with the circle */
+    gap: 14px;          /* Space between the circular icon and the text label */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 16px 8px 8px; /* Snug padding around the inner circle */
+    border-radius: 40px;       /* Pill shape layout */
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+/* The circular icon wrapper holding the emoji */
+.chip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Perfect Circle Dimensions */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    
+    /* Premium Dark Theme Styling */
+    background: radial-gradient(circle, #222222 0%, #111111 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Targets the new animated WebP emoji image inside your span */
+.chip-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   HOVER STATES & MICRO-INTERACTIONS
+   ========================================================================== */
+
+.strength-chip:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(232, 163, 58, 0.3); /* Soft gold accent border */
+    transform: translateY(-2px);
+}
+
+.strength-chip:hover .chip-icon {
+    background: #1a1a1a;
+    border-color: rgba(232, 163, 58, 0.6);
+    box-shadow: 0 0 12px rgba(232, 163, 58, 0.2);
+}
+
+/* Makes the animated emoji pop slightly on hover */
+.strength-chip:hover .chip-icon img {
+    transform: scale(1.15);
+}
+
 
     /* ============================================
        CUSTOM CURSOR

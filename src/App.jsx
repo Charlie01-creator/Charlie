@@ -29,6 +29,19 @@ import {
    ink-dim   #B8B8B8
 --------------------------------------------------------- */
 
+/* ---------------------------------------------------------
+   HOW TO ADD A REAL PHOTO TO A PROJECT CARD:
+   1. Drop the image file into src/assets/, e.g. src/assets/hospital.jpg
+   2. Import it up here, e.g.:
+        import hospitalImg from "./assets/hospital.jpg";
+   3. In the PROJECTS array below, set that project's `image` field
+      to the imported variable instead of null, e.g.:
+        image: hospitalImg,
+   Projects with image: null automatically fall back to the gradient
+   + name-text look, so you can add photos one at a time without
+   breaking anything.
+--------------------------------------------------------- */
+
 function useInView(threshold = 0.3) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
@@ -130,18 +143,20 @@ const ADVANTAGES = [
 
 const PROJECTS = [
   {
-    name: "Wonderlust Tourism Company",
-    category: "Tourism and Hospitality Platform",
+    name: "St. Aurelius Medical Center",
+    category: "Hospital & Healthcare Platform",
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/travel-tourism",
+    link: "#",
+    image: null,
   },
   {
-    name: "PlusFit Club",
+    name: "Forge Fitness Club",
     category: "Gym & Membership Platform",
     stack: ["React", "Stripe", "Node.js"],
     color: "from-[#171717] to-[#080808]",
-    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/fitness-gym",
+    link: "#",
+    image: null,
   },
   {
     name: "Ember & Oak",
@@ -149,6 +164,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "The Meridian Grand",
@@ -156,6 +172,7 @@ const PROJECTS = [
     stack: ["Next.js", "PostgreSQL", "Stripe"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
+    image: null,
   },
   {
     name: "Azure Coast Resort",
@@ -163,6 +180,7 @@ const PROJECTS = [
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
+    image: null,
   },
   {
     name: "Aurelia Capital",
@@ -170,6 +188,7 @@ const PROJECTS = [
     stack: ["Next.js", "TypeScript", "PostgreSQL"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "Meridian Health",
@@ -177,6 +196,7 @@ const PROJECTS = [
     stack: ["React", "Node.js", "AWS"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
+    image: null,
   },
   {
     name: "Voltra Logistics",
@@ -184,6 +204,7 @@ const PROJECTS = [
     stack: ["Next.js", "OpenAI API", "Prisma"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "Solace Retail",
@@ -191,6 +212,7 @@ const PROJECTS = [
     stack: ["React", "Stripe", "Vercel"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
+    image: null,
   },
   {
     name: "Blackwood & Sons",
@@ -198,6 +220,7 @@ const PROJECTS = [
     stack: ["Next.js", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
+    image: null,
   },
   {
     name: "Bloom Botanical Salon",
@@ -205,6 +228,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "Harbor & Vine",
@@ -212,6 +236,7 @@ const PROJECTS = [
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
+    image: null,
   },
   {
     name: "Northstar Auto Repair",
@@ -219,6 +244,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "Little Sprouts Academy",
@@ -226,6 +252,7 @@ const PROJECTS = [
     stack: ["Next.js", "Supabase", "Vercel"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
+    image: null,
   },
   {
     name: "Cedar Ridge Guesthouse",
@@ -233,6 +260,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
+    image: null,
   },
   {
     name: "Pulse Dance Studio",
@@ -240,6 +268,7 @@ const PROJECTS = [
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "The Daily Grind",
@@ -247,6 +276,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
+    image: null,
   },
   {
     name: "Marlowe & Finch Florists",
@@ -254,6 +284,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
+    image: null,
   },
   {
     name: "Trailhead Adventures",
@@ -261,6 +292,7 @@ const PROJECTS = [
     stack: ["Next.js", "Stripe", "Vercel"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
+    image: null,
   },
   {
     name: "Ironclad Builders",
@@ -268,6 +300,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
+    image: null,
   },
 ];
 
@@ -566,10 +599,33 @@ export default function App() {
               rel="noopener noreferrer"
               className="group rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/60 block"
             >
-              <div className={`h-44 bg-gradient-to-br ${p.color} flex items-center justify-center relative`}>
-                <span className="font-display text-2xl text-white/15 font-semibold">
-                  {p.name}
-                </span>
+              <div className="h-44 relative overflow-hidden">
+                {p.image ? (
+                  <>
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t ${p.color} opacity-70`}
+                    />
+                  </>
+                ) : (
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${p.color} flex items-center justify-center`}
+                  >
+                    <span className="font-display text-2xl text-white/15 font-semibold">
+                      {p.name}
+                    </span>
+                  </div>
+                )}
+                {p.image && (
+                  <span className="absolute bottom-4 left-4 font-display text-lg text-white font-semibold drop-shadow-lg">
+                    {p.name}
+                  </span>
+                )}
                 <ArrowUpRight
                   className="absolute top-4 right-4 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity"
                   size={18}

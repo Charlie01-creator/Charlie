@@ -130,28 +130,144 @@ const ADVANTAGES = [
 
 const PROJECTS = [
   {
+    name: "St. Aurelius Medical Center",
+    category: "Hospital & Healthcare Platform",
+    stack: ["Next.js", "TypeScript", "Supabase"],
+    color: "from-[#1a1a1a] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "Forge Fitness Club",
+    category: "Gym & Membership Platform",
+    stack: ["React", "Stripe", "Node.js"],
+    color: "from-[#171717] to-[#080808]",
+    link: "#",
+  },
+  {
+    name: "Ember & Oak",
+    category: "Restaurant Website",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1c1c1c] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "The Meridian Grand",
+    category: "Hotel Booking Platform",
+    stack: ["Next.js", "PostgreSQL", "Stripe"],
+    color: "from-[#191919] to-[#090909]",
+    link: "#",
+  },
+  {
+    name: "Azure Coast Resort",
+    category: "Beach Resort Website",
+    stack: ["React", "Framer Motion", "Vercel"],
+    color: "from-[#1e1e1e] to-[#0b0b0b]",
+    link: "#",
+  },
+  {
     name: "Aurelia Capital",
     category: "Fintech Platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
+    link: "#",
   },
   {
     name: "Meridian Health",
     category: "Enterprise Web App",
     stack: ["React", "Node.js", "AWS"],
     color: "from-[#171717] to-[#080808]",
+    link: "#",
   },
   {
     name: "Voltra Logistics",
     category: "AI-Powered Dashboard",
     stack: ["Next.js", "OpenAI API", "Prisma"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
+    link: "#",
   },
   {
     name: "Solace Retail",
     category: "E-commerce Platform",
     stack: ["React", "Stripe", "Vercel"],
     color: "from-[#191919] to-[#090909]",
+    link: "#",
+  },
+  {
+    name: "Blackwood & Sons",
+    category: "Legal Services Website",
+    stack: ["Next.js", "Tailwind CSS", "Vercel"],
+    color: "from-[#1e1e1e] to-[#0b0b0b]",
+    link: "#",
+  },
+  {
+    name: "Bloom Botanical Salon",
+    category: "Hair & Beauty Salon",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1a1a1a] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "Harbor & Vine",
+    category: "Wine Bar Website",
+    stack: ["React", "Framer Motion", "Vercel"],
+    color: "from-[#171717] to-[#080808]",
+    link: "#",
+  },
+  {
+    name: "Northstar Auto Repair",
+    category: "Mechanic & Auto Shop",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1c1c1c] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "Little Sprouts Academy",
+    category: "Childcare & Tutoring Platform",
+    stack: ["Next.js", "Supabase", "Vercel"],
+    color: "from-[#191919] to-[#090909]",
+    link: "#",
+  },
+  {
+    name: "Cedar Ridge Guesthouse",
+    category: "B&B / Guesthouse Website",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1e1e1e] to-[#0b0b0b]",
+    link: "#",
+  },
+  {
+    name: "Pulse Dance Studio",
+    category: "Dance & Movement Studio",
+    stack: ["React", "Framer Motion", "Vercel"],
+    color: "from-[#1a1a1a] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "The Daily Grind",
+    category: "Café & Coffee Shop",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#171717] to-[#080808]",
+    link: "#",
+  },
+  {
+    name: "Marlowe & Finch Florists",
+    category: "Independent Retail Website",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1c1c1c] to-[#0a0a0a]",
+    link: "#",
+  },
+  {
+    name: "Trailhead Adventures",
+    category: "Tour Guide & Activities Booking",
+    stack: ["Next.js", "Stripe", "Vercel"],
+    color: "from-[#191919] to-[#090909]",
+    link: "#",
+  },
+  {
+    name: "Ironclad Builders",
+    category: "Construction & Trades Website",
+    stack: ["React", "Tailwind CSS", "Vercel"],
+    color: "from-[#1e1e1e] to-[#0b0b0b]",
+    link: "#",
   },
 ];
 
@@ -443,9 +559,12 @@ export default function App() {
         </h2>
         <div className="grid sm:grid-cols-2 gap-5">
           {PROJECTS.map((p) => (
-            <div
+            <a
               key={p.name}
-              className="group rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/60"
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/60 block"
             >
               <div className={`h-44 bg-gradient-to-br ${p.color} flex items-center justify-center relative`}>
                 <span className="font-display text-2xl text-white/15 font-semibold">
@@ -472,7 +591,7 @@ export default function App() {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </Section>

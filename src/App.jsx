@@ -130,11 +130,11 @@ const ADVANTAGES = [
 
 const PROJECTS = [
   {
-    name: "St. Aurelius Medical Center",
-    category: "Hospital & Healthcare Platform",
+    name: "Wonderlust Tourism Company",
+    category: "Tourism and Hospitality Platform",
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "#",
+    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/travel-tourism",
   },
   {
     name: "Forge Fitness Club",

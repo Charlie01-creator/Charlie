@@ -137,11 +137,11 @@ const PROJECTS = [
     link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/travel-tourism",
   },
   {
-    name: "Forge Fitness Club",
+    name: "PlusFit Club",
     category: "Gym & Membership Platform",
     stack: ["React", "Stripe", "Node.js"],
     color: "from-[#171717] to-[#080808]",
-    link: "#",
+    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/fitness-gym",
   },
   {
     name: "Ember & Oak",

@@ -16,17 +16,23 @@ import {
   Github,
   Mail,
   ArrowUpRight,
+  Sun,
+  Moon,
+  ChevronDown,
 } from "lucide-react";
 
 /* ---------------------------------------------------------
    Nexora Tech — marketing site
-   Tokens:
+   Tokens (dark theme, the original design):
    bg        #050505
    surface   #111111
    gold      #D4AF37
    gold-hi   #FFD700
    ink       #FFFFFF
    ink-dim   #B8B8B8
+
+   Light theme mirrors the same structure with light surfaces;
+   gold stays the constant brand accent in both themes.
 --------------------------------------------------------- */
 
 /* ---------------------------------------------------------
@@ -339,6 +345,8 @@ const TESTIMONIALS = [
   },
 ];
 
+const INITIAL_PROJECT_COUNT = 6;
+
 function Section({ id, children, className = "" }) {
   return (
     <section id={id} className={`relative px-6 md:px-10 ${className}`}>
@@ -359,6 +367,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [statsRef, statsInView] = useInView(0.4);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -367,6 +376,33 @@ export default function App() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+
+  // Theme state is initialized from the class the inline script in
+  // index.html already set on <html>, so there's no mismatch/flash
+  // between what was set before paint and what React thinks it is.
+  const [theme, setTheme] = useState(() => {
+    if (typeof document !== "undefined") {
+      return document.documentElement.classList.contains("dark") ? "dark" : "light";
+    }
+    return "dark";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    try {
+      localStorage.setItem("nexora-theme", theme);
+    } catch (e) {
+      // localStorage can throw in private-browsing/blocked-storage contexts;
+      // theme still works for the current session, it just won't persist.
+    }
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 80);
@@ -379,10 +415,14 @@ export default function App() {
     setSent(true);
   };
 
+  const visibleProjects = showAllProjects
+    ? PROJECTS
+    : PROJECTS.slice(0, INITIAL_PROJECT_COUNT);
+
   return (
-    <div className="min-h-screen bg-[#050505] text-white antialiased" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+    <div className="min-h-screen bg-white text-black dark:bg-[#050505] dark:text-white antialiased transition-colors duration-300" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 border-b border-white/[0.06] bg-[#050505]/80 backdrop-blur-md">
+      <header className="fixed top-0 inset-x-0 z-50 border-b border-black/[0.06] dark:border-white/[0.06] bg-white/80 dark:bg-[#050505]/80 backdrop-blur-md transition-colors duration-300">
         <div className="mx-auto max-w-6xl px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2 font-display font-semibold text-lg">
             Nexora
@@ -394,12 +434,19 @@ export default function App() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-sm text-[#B8B8B8] hover:text-white transition-colors relative group"
+                className="text-sm text-black/60 dark:text-[#B8B8B8] hover:text-black dark:hover:text-white transition-colors relative group"
               >
                 {l.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle light/dark theme"
+              className="p-2 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
             <a
               href="#contact"
               className="text-sm font-medium bg-[#D4AF37] text-black px-4 py-2 rounded-full hover:bg-[#FFD700] transition-colors"
@@ -408,23 +455,32 @@ export default function App() {
             </a>
           </nav>
 
-          <button
-            className="md:hidden text-white"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle light/dark theme"
+              className="p-2 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white"
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+            <button
+              className="text-black dark:text-white"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden border-t border-white/[0.06] px-6 py-4 flex flex-col gap-4 bg-[#050505]">
+          <div className="md:hidden border-t border-black/[0.06] dark:border-white/[0.06] px-6 py-4 flex flex-col gap-4 bg-white dark:bg-[#050505]">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-sm text-[#B8B8B8]"
+                className="text-sm text-black/60 dark:text-[#B8B8B8]"
               >
                 {l.label}
               </a>
@@ -468,7 +524,7 @@ export default function App() {
                 Through Technology
               </h1>
               <p
-                className="rise-in mt-6 text-base md:text-lg text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed"
+                className="rise-in mt-6 text-base md:text-lg text-black/60 dark:text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed"
                 style={{ animationDelay: "0.2s" }}
               >
                 Nexora Tech creates premium websites, intelligent software, and
@@ -487,7 +543,7 @@ export default function App() {
                 </a>
                 <a
                   href="#work"
-                  className="w-full sm:w-auto text-center border border-[#D4AF37]/50 text-white font-medium px-7 py-3 rounded-full hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-colors"
+                  className="w-full sm:w-auto text-center border border-[#D4AF37]/50 text-black dark:text-white font-medium px-7 py-3 rounded-full hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-colors"
                 >
                   View Our Work
                 </a>
@@ -498,7 +554,7 @@ export default function App() {
       </div>
 
       {/* ABOUT */}
-      <Section id="about" className="py-24 border-t border-white/[0.06]">
+      <Section id="about" className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
             <Eyebrow>About Nexora Tech</Eyebrow>
@@ -508,7 +564,7 @@ export default function App() {
               We engineer digital experiences.
             </h2>
           </div>
-          <div className="space-y-5 text-[#B8B8B8] leading-relaxed">
+          <div className="space-y-5 text-black/60 dark:text-[#B8B8B8] leading-relaxed">
             <p>
               Nexora Tech is a technology partner for businesses that need
               more than a template — high-performance websites, custom
@@ -516,12 +572,12 @@ export default function App() {
               engineering as a craft.
             </p>
             <p>
-              <span className="text-white font-medium">Our mission</span> is
+              <span className="text-black dark:text-white font-medium">Our mission</span> is
               to give ambitious companies the same quality of technology that
               the world's best-funded teams build for themselves.
             </p>
             <p>
-              <span className="text-white font-medium">Our vision</span> is a
+              <span className="text-black dark:text-white font-medium">Our vision</span> is a
               future where great software isn't reserved for big budgets —
               where any business with the right idea can build something
               world-class.
@@ -531,7 +587,7 @@ export default function App() {
       </Section>
 
       {/* SERVICES */}
-      <Section id="services" className="py-24 border-t border-white/[0.06]">
+      <Section id="services" className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <Eyebrow>Services</Eyebrow>
         <h2 className="font-display text-3xl md:text-4xl font-semibold mb-12 max-w-xl">
           Everything it takes to ship world-class technology
@@ -540,18 +596,18 @@ export default function App() {
           {SERVICES.map((s) => (
             <div
               key={s.title}
-              className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm p-7 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-white/[0.04]"
+              className="group rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm p-7 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-black/[0.04] dark:hover:bg-white/[0.04]"
             >
               <s.icon className="text-[#D4AF37]" size={26} strokeWidth={1.6} />
               <h3 className="font-display text-lg font-medium mt-5 mb-2">
                 {s.title}
               </h3>
-              <p className="text-sm text-[#B8B8B8] leading-relaxed mb-4">
+              <p className="text-sm text-black/60 dark:text-[#B8B8B8] leading-relaxed mb-4">
                 {s.desc}
               </p>
               <ul className="space-y-1.5">
                 {s.items.map((it) => (
-                  <li key={it} className="text-sm text-[#B8B8B8] flex items-center gap-2">
+                  <li key={it} className="text-sm text-black/60 dark:text-[#B8B8B8] flex items-center gap-2">
                     <span className="h-1 w-1 rounded-full bg-[#D4AF37]/70" />
                     {it}
                   </li>
@@ -563,20 +619,20 @@ export default function App() {
       </Section>
 
       {/* WHY NEXORA */}
-      <Section className="py-24 border-t border-white/[0.06]" id="why">
+      <Section className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]" id="why">
         <div ref={statsRef} className="grid sm:grid-cols-3 gap-8 mb-16 text-center">
           {STATS.map((s) => (
             <div key={s.label}>
               <div className="font-display text-4xl md:text-5xl font-semibold text-[#FFD700]">
                 <CountUp to={s.to} suffix={s.suffix} start={statsInView} />
               </div>
-              <p className="mt-2 text-sm text-[#B8B8B8]">{s.label}</p>
+              <p className="mt-2 text-sm text-black/60 dark:text-[#B8B8B8]">{s.label}</p>
             </div>
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
           {ADVANTAGES.map((a) => (
-            <div key={a.text} className="flex items-center gap-2 text-sm text-[#B8B8B8]">
+            <div key={a.text} className="flex items-center gap-2 text-sm text-black/60 dark:text-[#B8B8B8]">
               <a.icon size={16} className="text-[#D4AF37]" />
               {a.text}
             </div>
@@ -585,19 +641,19 @@ export default function App() {
       </Section>
 
       {/* PORTFOLIO */}
-      <Section id="work" className="py-24 border-t border-white/[0.06]">
+      <Section id="work" className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <Eyebrow>Selected Work</Eyebrow>
         <h2 className="font-display text-3xl md:text-4xl font-semibold mb-12 max-w-xl">
           Products we've built for ambitious teams
         </h2>
         <div className="grid sm:grid-cols-2 gap-5">
-          {PROJECTS.map((p) => (
+          {visibleProjects.map((p) => (
             <a
               key={p.name}
               href={p.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/60 block"
+              className="group rounded-2xl border border-black/[0.08] dark:border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/60 block"
             >
               <div className="h-44 relative overflow-hidden">
                 {p.image ? (
@@ -631,7 +687,7 @@ export default function App() {
                   size={18}
                 />
               </div>
-              <div className="p-6 bg-white/[0.02]">
+              <div className="p-6 bg-black/[0.02] dark:bg-white/[0.02]">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-display font-medium">{p.name}</h3>
                   <span className="text-xs text-[#D4AF37]">{p.category}</span>
@@ -640,7 +696,7 @@ export default function App() {
                   {p.stack.map((t) => (
                     <span
                       key={t}
-                      className="text-xs text-[#B8B8B8] border border-white/10 rounded-full px-2.5 py-1"
+                      className="text-xs text-black/60 dark:text-[#B8B8B8] border border-black/10 dark:border-white/10 rounded-full px-2.5 py-1"
                     >
                       {t}
                     </span>
@@ -650,10 +706,27 @@ export default function App() {
             </a>
           ))}
         </div>
+
+        {PROJECTS.length > INITIAL_PROJECT_COUNT && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setShowAllProjects((v) => !v)}
+              className="flex items-center gap-2 text-sm font-medium border border-black/15 dark:border-white/15 text-black dark:text-white px-6 py-3 rounded-full hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+            >
+              {showAllProjects
+                ? "Show Less"
+                : `Show More (${PROJECTS.length - INITIAL_PROJECT_COUNT} more)`}
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-300 ${showAllProjects ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+        )}
       </Section>
 
       {/* TECH STACK */}
-      <Section className="py-24 border-t border-white/[0.06]">
+      <Section className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <Eyebrow>Technology</Eyebrow>
         <h2 className="font-display text-3xl md:text-4xl font-semibold mb-12 max-w-xl">
           Built on tools made for scale
@@ -661,12 +734,12 @@ export default function App() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {Object.entries(STACK).map(([cat, items]) => (
             <div key={cat}>
-              <p className="text-sm font-medium text-white mb-3">{cat}</p>
+              <p className="text-sm font-medium text-black dark:text-white mb-3">{cat}</p>
               <div className="flex flex-col gap-2">
                 {items.map((it) => (
                   <span
                     key={it}
-                    className="text-sm text-[#B8B8B8] border-b border-white/[0.06] pb-2"
+                    className="text-sm text-black/60 dark:text-[#B8B8B8] border-b border-black/[0.06] dark:border-white/[0.06] pb-2"
                   >
                     {it}
                   </span>
@@ -678,7 +751,7 @@ export default function App() {
       </Section>
 
       {/* PROCESS */}
-      <Section id="process" className="py-24 border-t border-white/[0.06]">
+      <Section id="process" className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <Eyebrow>How We Work</Eyebrow>
         <h2 className="font-display text-3xl md:text-4xl font-semibold mb-14 max-w-xl">
           A clear process from first call to launch
@@ -688,17 +761,17 @@ export default function App() {
             <div key={step.n} className="relative pl-0">
               <div className="flex items-center gap-3 mb-3">
                 <span className="font-display text-sm text-[#D4AF37]">{step.n}</span>
-                <span className="h-px flex-1 bg-white/10" />
+                <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />
               </div>
               <h3 className="font-display text-lg font-medium mb-2">{step.title}</h3>
-              <p className="text-sm text-[#B8B8B8] leading-relaxed">{step.desc}</p>
+              <p className="text-sm text-black/60 dark:text-[#B8B8B8] leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
       {/* TESTIMONIALS */}
-      <Section className="py-24 border-t border-white/[0.06]">
+      <Section className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <Eyebrow>Client Feedback</Eyebrow>
         <h2 className="font-display text-3xl md:text-4xl font-semibold mb-12 max-w-xl">
           What it's like to work with us
@@ -707,15 +780,15 @@ export default function App() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col"
+              className="rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] p-7 flex flex-col"
             >
               <Quote className="text-[#D4AF37]/70 mb-4" size={22} />
-              <p className="text-sm text-[#B8B8B8] leading-relaxed flex-1">
+              <p className="text-sm text-black/60 dark:text-[#B8B8B8] leading-relaxed flex-1">
                 {t.quote}
               </p>
-              <div className="mt-6 pt-4 border-t border-white/[0.06]">
-                <p className="text-sm font-medium text-white">{t.name}</p>
-                <p className="text-xs text-[#B8B8B8]">{t.role}</p>
+              <div className="mt-6 pt-4 border-t border-black/[0.06] dark:border-white/[0.06]">
+                <p className="text-sm font-medium text-black dark:text-white">{t.name}</p>
+                <p className="text-xs text-black/60 dark:text-[#B8B8B8]">{t.role}</p>
               </div>
             </div>
           ))}
@@ -723,31 +796,31 @@ export default function App() {
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact" className="py-24 border-t border-white/[0.06]">
+      <Section id="contact" className="py-24 border-t border-black/[0.06] dark:border-white/[0.06]">
         <div className="grid lg:grid-cols-2 gap-14">
           <div>
             <Eyebrow>Get In Touch</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-5">
               Ready To Build The Future?
             </h2>
-            <p className="text-[#B8B8B8] leading-relaxed mb-8 max-w-md">
+            <p className="text-black/60 dark:text-[#B8B8B8] leading-relaxed mb-8 max-w-md">
               Tell us about your project and we'll get back to you within one
               business day with next steps.
             </p>
-            <div className="space-y-3 text-sm text-[#B8B8B8]">
+            <div className="space-y-3 text-sm text-black/60 dark:text-[#B8B8B8]">
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-[#D4AF37]" />
                 hello@nexoratech.com
               </div>
             </div>
             <div className="flex gap-4 mt-8">
-              <a href="#" aria-label="Twitter" className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+              <a href="#" aria-label="Twitter" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Twitter size={18} />
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+              <a href="#" aria-label="LinkedIn" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Linkedin size={18} />
               </a>
-              <a href="#" aria-label="GitHub" className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+              <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Github size={18} />
               </a>
             </div>
@@ -759,26 +832,26 @@ export default function App() {
                 placeholder="Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                className="bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#888] dark:placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
               />
               <input
                 type="email"
                 placeholder="Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                className="bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#888] dark:placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
               />
             </div>
             <input
               placeholder="Company"
               value={form.company}
               onChange={(e) => setForm({ ...form, company: e.target.value })}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
+              className="w-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#888] dark:placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors"
             />
             <select
               value={form.projectType}
               onChange={(e) => setForm({ ...form, projectType: e.target.value })}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm text-[#B8B8B8] focus:outline-none focus:border-[#D4AF37] transition-colors"
+              className="w-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-sm text-black/70 dark:text-[#B8B8B8] focus:outline-none focus:border-[#D4AF37] transition-colors"
             >
               <option>Website Development</option>
               <option>Software Development</option>
@@ -791,7 +864,7 @@ export default function App() {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors resize-none"
+              className="w-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-sm placeholder:text-[#888] dark:placeholder:text-[#666] focus:outline-none focus:border-[#D4AF37] transition-colors resize-none"
             />
             <button
               type="submit"
@@ -805,45 +878,45 @@ export default function App() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.06] py-12 px-6 md:px-10">
+      <footer className="border-t border-black/[0.06] dark:border-white/[0.06] py-12 px-6 md:px-10">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between gap-10">
           <div>
             <p className="font-display font-semibold text-lg">
               Nexora<span className="text-[#D4AF37]">Tech</span>
             </p>
-            <p className="text-sm text-[#B8B8B8] mt-2 max-w-xs">
+            <p className="text-sm text-black/60 dark:text-[#B8B8B8] mt-2 max-w-xs">
               Engineering Tomorrow's Technology.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
             <div className="flex flex-col gap-2">
-              <p className="text-white font-medium mb-1">Navigate</p>
+              <p className="text-black dark:text-white font-medium mb-1">Navigate</p>
               {NAV_LINKS.map((l) => (
-                <a key={l.label} href={l.href} className="text-[#B8B8B8] hover:text-white transition-colors">
+                <a key={l.label} href={l.href} className="text-black/60 dark:text-[#B8B8B8] hover:text-black dark:hover:text-white transition-colors">
                   {l.label}
                 </a>
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-white font-medium mb-1">Services</p>
+              <p className="text-black dark:text-white font-medium mb-1">Services</p>
               {SERVICES.slice(0, 4).map((s) => (
-                <span key={s.title} className="text-[#B8B8B8]">
+                <span key={s.title} className="text-black/60 dark:text-[#B8B8B8]">
                   {s.title}
                 </span>
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-white font-medium mb-1">Connect</p>
-              <span className="text-[#B8B8B8]">hello@nexoratech.com</span>
+              <p className="text-black dark:text-white font-medium mb-1">Connect</p>
+              <span className="text-black/60 dark:text-[#B8B8B8]">hello@nexoratech.com</span>
               <div className="flex gap-3 mt-1">
-                <Twitter size={16} className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
-                <Linkedin size={16} className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
-                <Github size={16} className="text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <Twitter size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <Linkedin size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <Github size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
               </div>
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-6xl mt-10 pt-6 border-t border-white/[0.06] text-xs text-[#666]">
+        <div className="mx-auto max-w-6xl mt-10 pt-6 border-t border-black/[0.06] dark:border-white/[0.06] text-xs text-black/40 dark:text-[#666]">
           © {new Date().getFullYear()} Nexora Tech. All rights reserved.
         </div>
       </footer>

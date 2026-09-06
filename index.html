@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Set theme before first paint to avoid a flash of the wrong theme on load -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("nexora-theme");
+          if (saved === "light") {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
     <!-- Primary SEO -->
     <title>Nexora Tech — Building The Future Through Technology</title>
     <meta

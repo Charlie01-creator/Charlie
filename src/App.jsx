@@ -221,12 +221,12 @@ const PROJECTS = [
     image: null,
   },
   {
-    name: "Blackwood & Sons",
-    category: "Legal Services Website",
+    name: "PawSpa Animals",
+    category: "Animal Friendship",
     stack: ["Next.js", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
-    link: "#",
-    image: null,
+    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/pet-grooming",
+    image: dogImg,
   },
   {
     name: "Bloom Botanical Salon",

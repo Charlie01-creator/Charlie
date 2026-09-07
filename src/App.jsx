@@ -149,12 +149,12 @@ const ADVANTAGES = [
 
 const PROJECTS = [
   {
-    name: "St. Aurelius Medical Center",
+    name: "MediCare Medical Center",
     category: "Hospital & Healthcare Platform",
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "#",
-    image: null,
+    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/medical-clinic#main-content",
+    image: healthImg,
   },
   {
     name: "Forge Fitness Club",

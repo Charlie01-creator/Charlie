@@ -154,7 +154,7 @@ const PROJECTS = [
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/medical-clinic#main-content",
-    image: healthImg,
+    image: null,
   },
   {
     name: "Forge Fitness Club",

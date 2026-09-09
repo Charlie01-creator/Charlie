@@ -154,7 +154,7 @@ const PROJECTS = [
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/medical-clinic#main-content",
-    image: dogImg,
+    image: null,
   },
   {
     name: "Forge Fitness Club",
@@ -164,6 +164,14 @@ const PROJECTS = [
     link: "#",
     image: null,
   },
+  {
+  name: "Harbor & Vine",
+  category: "Wine Bar Website",
+  stack: ["React", "Framer Motion", "Vercel"],
+  color: "from-[#171717] to-[#080808]",
+  link: "#",
+  image: "/dog.jpeg",   // just a string — no import required
+},
   {
     name: "Ember & Oak",
     category: "Restaurant Website",

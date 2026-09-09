@@ -170,7 +170,7 @@ const PROJECTS = [
   stack: ["React", "Framer Motion", "Vercel"],
   color: "from-[#171717] to-[#080808]",
   link: "#",
-  image: "/dog.jpeg",   // just a string — no import required
+  image: "/cloth.jpg",   // just a string — no import required
 },
   {
     name: "Ember & Oak",

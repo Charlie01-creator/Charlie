@@ -162,7 +162,7 @@ const PROJECTS = [
     stack: ["React", "Stripe", "Node.js"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
-    image: "/clothe.png",
+    image: "/yy.jpg",
   },
   {
   name: "Harbor & Vine",

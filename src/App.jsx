@@ -154,7 +154,7 @@ const PROJECTS = [
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/medical-clinic#main-content",
-    image: null,
+    image: "/health.jpg",
   },
   {
     name: "Forge Fitness Club",
@@ -162,15 +162,15 @@ const PROJECTS = [
     stack: ["React", "Stripe", "Node.js"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
-    image: "/yy.jpg",
+    image: "/gym.jpg",
   },
   {
-  name: "Harbor & Vine",
-  category: "Wine Bar Website",
+  name: "Medical Care",
+  category: "Hospital and Health Care",
   stack: ["React", "Framer Motion", "Vercel"],
   color: "from-[#171717] to-[#080808]",
   link: "#",
-  image: "/cloth.jpg",   // just a string — no import required
+  image: "/health1.jpg",   // just a string — no import required
 },
   {
     name: "Ember & Oak",
@@ -178,7 +178,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
-    image: null,
+    image: "/food.jpg",
   },
   {
     name: "The Meridian Grand",
@@ -186,7 +186,7 @@ const PROJECTS = [
     stack: ["Next.js", "PostgreSQL", "Stripe"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
-    image: null,
+    image: "/hotel.jpg",
   },
   {
     name: "Azure Coast Resort",
@@ -194,7 +194,7 @@ const PROJECTS = [
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
-    image: null,
+    image: "/hotel1.jpg",
   },
   {
     name: "Aurelia Capital",
@@ -202,7 +202,7 @@ const PROJECTS = [
     stack: ["Next.js", "TypeScript", "PostgreSQL"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "#",
-    image: null,
+    image: "/realestate.jpg",
   },
   {
     name: "Meridian Health",
@@ -210,7 +210,7 @@ const PROJECTS = [
     stack: ["React", "Node.js", "AWS"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
-    image: null,
+    image: "/art.jpg",
   },
   {
     name: "Voltra Logistics",
@@ -218,7 +218,7 @@ const PROJECTS = [
     stack: ["Next.js", "OpenAI API", "Prisma"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
-    image: null,
+    image: "/work.jpg",
   },
   {
     name: "Solace Retail",
@@ -226,7 +226,7 @@ const PROJECTS = [
     stack: ["React", "Stripe", "Vercel"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
-    image: null,
+    image: "/pet.jpg",
   },
   {
     name: "Blackwood & Sons",
@@ -234,7 +234,7 @@ const PROJECTS = [
     stack: ["Next.js", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
-    image: null,
+    image: "/body.jpg",
   },
   {
     name: "Bloom Botanical Salon",
@@ -242,7 +242,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
     link: "#",
-    image: null,
+    image: "/law.jpg",
   },
   {
     name: "Harbor & Vine",
@@ -250,7 +250,7 @@ const PROJECTS = [
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#171717] to-[#080808]",
     link: "#",
-    image: null,
+    image: "/music.jpg",
   },
   {
     name: "Northstar Auto Repair",
@@ -258,7 +258,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
     link: "#",
-    image: null,
+    image: "/sales.jpg",
   },
   {
     name: "Little Sprouts Academy",
@@ -266,7 +266,7 @@ const PROJECTS = [
     stack: ["Next.js", "Supabase", "Vercel"],
     color: "from-[#191919] to-[#090909]",
     link: "#",
-    image: null,
+    image: "/game.jpg",
   },
   {
     name: "Cedar Ridge Guesthouse",
@@ -274,48 +274,9 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
-    image: null,
+    image: "/wedding.jpg",
   },
-  {
-    name: "Pulse Dance Studio",
-    category: "Dance & Movement Studio",
-    stack: ["React", "Framer Motion", "Vercel"],
-    color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "#",
-    image: null,
-  },
-  {
-    name: "The Daily Grind",
-    category: "Café & Coffee Shop",
-    stack: ["React", "Tailwind CSS", "Vercel"],
-    color: "from-[#171717] to-[#080808]",
-    link: "#",
-    image: null,
-  },
-  {
-    name: "Marlowe & Finch Florists",
-    category: "Independent Retail Website",
-    stack: ["React", "Tailwind CSS", "Vercel"],
-    color: "from-[#1c1c1c] to-[#0a0a0a]",
-    link: "#",
-    image: null,
-  },
-  {
-    name: "Trailhead Adventures",
-    category: "Tour Guide & Activities Booking",
-    stack: ["Next.js", "Stripe", "Vercel"],
-    color: "from-[#191919] to-[#090909]",
-    link: "#",
-    image: null,
-  },
-  {
-    name: "Ironclad Builders",
-    category: "Construction & Trades Website",
-    stack: ["React", "Tailwind CSS", "Vercel"],
-    color: "from-[#1e1e1e] to-[#0b0b0b]",
-    link: "#",
-    image: null,
-  },
+    
 ];
 
 const STACK = {

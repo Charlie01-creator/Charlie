@@ -274,7 +274,7 @@ const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
-    image: "/wedding.jpg",
+    image: "/weeding.jpg",
   },
     
 ];

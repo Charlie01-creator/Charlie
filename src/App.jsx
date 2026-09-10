@@ -15,6 +15,8 @@ import {
   Twitter,
   Github,
   Mail,
+  WhatsApp,
+  Instagram,
   ArrowUpRight,
   Sun,
   Moon,
@@ -877,7 +879,8 @@ export default function App() {
             <div className="flex flex-col gap-2">
               <p className="text-black dark:text-white font-medium mb-1">Connect</p>
               <span className="text-black/60 dark:text-[#B8B8B8]">hello@nexoratech.com</span>
-              <span className="text-black/60 dark:text-[#B8B8B8]">hello@nexoratech.com</span>
+              <span className="text-black/60 dark:text-[#B8B8B8]">+256 781 915680</span>
+              <span className="text-black/60 dark:text-[#B8B8B8]">+256 700 955563</span>
               <div className="flex gap-3 mt-1">
                 <Twitter size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
                 <Linkedin size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />

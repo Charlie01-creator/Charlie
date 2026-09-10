@@ -193,7 +193,7 @@ const PROJECTS = [
     category: "Restaurant Website",
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
-    link: "#",
+    link: "https://frechfoods.netlify.app/",
     image: "/food1.jpg",
   },
   {

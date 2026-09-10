@@ -781,7 +781,7 @@ export default function App() {
             <div className="space-y-3 text-sm text-black/60 dark:text-[#B8B8B8]">
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-[#D4AF37]" />
-                hello@nexoratech.com
+                nexoratechug@gmail.com 
               </div>
             </div>
             <div className="flex gap-4 mt-8">
@@ -793,6 +793,12 @@ export default function App() {
               </a>
               <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Github size={18} />
+              </a>
+              <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+                <Github size={18} />
+              </a>
+              <a href="#" aria-label="Instagram" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+                <Instagram size={18} />
               </a>
             </div>
           </div>
@@ -878,7 +884,7 @@ export default function App() {
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-black dark:text-white font-medium mb-1">Connect</p>
-              <span className="text-black/60 dark:text-[#B8B8B8]">hello@nexoratech.com</span>
+              <span className="text-black/60 dark:text-[#B8B8B8]">nexoratechug@gmail.com</span>
               <span className="text-black/60 dark:text-[#B8B8B8]">+256 781 915680</span>
               <span className="text-black/60 dark:text-[#B8B8B8]">+256 700 955563</span>
               <div className="flex gap-3 mt-1">

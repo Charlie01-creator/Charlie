@@ -14,6 +14,7 @@ import {
   Linkedin,
   Twitter,
   Github,
+  Discord,
   Mail,
   WhatsApp,
   Instagram,
@@ -794,10 +795,10 @@ export default function App() {
               <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Github size={18} />
               </a>
-              <a href="#" aria-label="WhatsApp" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
-                <WhatsApp size={18} />
+              <a href="#" aria-label="Discord" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+                <Discord size={18} />
               </a>
-              <a href="#" aria-label="Instagram" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+              <a href="https://www.instagram.com/char.les7756?stkn=MWJmdmViZjZlbjlsYg==" aria-label="Instagram" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Instagram size={18} />
               </a>
             </div>

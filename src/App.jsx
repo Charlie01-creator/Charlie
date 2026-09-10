@@ -253,11 +253,11 @@ const PROJECTS = [
     image: "/music.jpg",
   },
   {
-    name: "Northstar Auto Repair",
-    category: "Mechanic & Auto Shop",
+    name: "SalesPro Services",
+    category: "Sales CRM Platform",
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
-    link: "#",
+    link: "https://uupm.cc/demo/sales-crm-platform",
     image: "/sales.jpg",
   },
   {

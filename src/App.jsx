@@ -261,11 +261,11 @@ const PROJECTS = [
     image: "/sales.jpg",
   },
   {
-    name: "Little Sprouts Academy",
-    category: "Childcare & Tutoring Platform",
+    name: "NexusPlay Games",
+    category: "Gaming Platform",
     stack: ["Next.js", "Supabase", "Vercel"],
     color: "from-[#191919] to-[#090909]",
-    link: "#",
+    link: "https://uupm.cc/demo/gaming-platform",
     image: "/game.jpg",
   },
   {

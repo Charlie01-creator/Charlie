@@ -181,11 +181,11 @@ const PROJECTS = [
     image: "/food.jpg",
   },
   {
-    name: "The Meridian Grand",
+    name: "Das Berliner Hotel",
     category: "Hotel Booking Platform",
     stack: ["Next.js", "PostgreSQL", "Stripe"],
     color: "from-[#191919] to-[#090909]",
-    link: "#",
+    link: "https://hotelug.netlify.app/",
     image: "/hotel.jpg",
   },
   {

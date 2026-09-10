@@ -173,11 +173,11 @@ const PROJECTS = [
   image: "/health1.jpg",   // just a string — no import required
 },
   {
-    name: "Ember & Oak",
+    name: "La Maison",
     category: "Restaurant Website",
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
-    link: "#",
+    link: "https://uupm.cc/demo/restaurant-food",
     image: "/food.jpg",
   },
   {

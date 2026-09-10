@@ -153,7 +153,7 @@ const PROJECTS = [
     category: "Hospital & Healthcare Platform",
     stack: ["Next.js", "TypeScript", "Supabase"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "https://ui-ux-pro-max-skill.nextlevelbuilder.io/demo/medical-clinic#main-content",
+    link: "https://uupm.cc/demo/medical-clinic",
     image: "/health.jpg",
   },
   {

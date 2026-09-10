@@ -189,12 +189,12 @@ const PROJECTS = [
     image: "/hotel.jpg",
   },
   {
-    name: "Azure Coast Resort",
-    category: "Beach Resort Website",
+    name: "French Foods",
+    category: "Restaurant Website",
     stack: ["React", "Framer Motion", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
     link: "#",
-    image: "/hotel1.jpg",
+    image: "/food1.jpg",
   },
   {
     name: "Aurelia Capital",

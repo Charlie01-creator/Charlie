@@ -213,11 +213,11 @@ const PROJECTS = [
     image: "/art.jpg",
   },
   {
-    name: "Voltra Logistics",
-    category: "AI-Powered Dashboard",
+    name: "WorkHub Space",
+    category: "Coworking Space",
     stack: ["Next.js", "OpenAI API", "Prisma"],
     color: "from-[#1c1c1c] to-[#0a0a0a]",
-    link: "#",
+    link: "https://uupm.cc/demo/coworking-space",
     image: "/work.jpg",
   },
   {

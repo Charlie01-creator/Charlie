@@ -269,11 +269,11 @@ const PROJECTS = [
     image: "/game.jpg",
   },
   {
-    name: "Cedar Ridge Guesthouse",
-    category: "B&B / Guesthouse Website",
+    name: "Eternal Moments",
+    category: "Wedding & Events Platform",
     stack: ["React", "Tailwind CSS", "Vercel"],
     color: "from-[#1e1e1e] to-[#0b0b0b]",
-    link: "#",
+    link: "https://uupm.cc/demo/wedding-events",
     image: "/weeding.jpg",
   },
     

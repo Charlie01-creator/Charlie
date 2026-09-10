@@ -165,11 +165,11 @@ const PROJECTS = [
     image: "/gym.jpg",
   },
   {
-  name: "Medical Care",
+  name: "MediConnect Care",
   category: "Hospital and Health Care",
   stack: ["React", "Framer Motion", "Vercel"],
   color: "from-[#171717] to-[#080808]",
-  link: "#",
+  link: "https://uupm.cc/demo/telemedicine",
   image: "/health1.jpg",   // just a string — no import required
 },
   {

@@ -14,9 +14,7 @@ import {
   Linkedin,
   Twitter,
   Github,
-  Discord,
   Mail,
-  WhatsApp,
   Instagram,
   ArrowUpRight,
   Sun,
@@ -50,6 +48,22 @@ import {
    + name-text look, so you can add photos one at a time without
    breaking anything.
 --------------------------------------------------------- */
+
+function WhatsAppIcon({ size = 18, className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" className={className}>
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m5.82 14.13c-.24.68-1.4 1.3-1.94 1.34-.5.04-1.12.06-1.8-.11a11.2 11.2 0 0 1-1.66-.62c-2.92-1.26-4.83-4.2-4.98-4.4-.15-.19-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.47c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.11.32.02.51-.09.19-.14.31-.27.47-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.15.28.68 1.13 1.47 1.83 1.01.9 1.87 1.18 2.15 1.31.27.14.43.11.6-.07.16-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.27.14.45.21.52.32.06.12.06.68-.18 1.35" />
+    </svg>
+  );
+}
+
+function DiscordIcon({ size = 18, className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" className={className}>
+      <path d="M20.32 4.37a19.8 19.8 0 0 0-4.9-1.52c-.21.38-.46.88-.63 1.28a18.3 18.3 0 0 0-5.58 0 12 12 0 0 0-.64-1.28 19.7 19.7 0 0 0-4.9 1.52C1.6 7.9.9 11.36 1.16 14.77a19.9 19.9 0 0 0 6.02 3.05c.49-.66.92-1.36 1.28-2.1a12.9 12.9 0 0 1-2.03-.98c.17-.13.34-.26.5-.4a14.2 14.2 0 0 0 12.14 0c.16.14.33.27.5.4-.65.38-1.33.71-2.03.98.36.74.79 1.44 1.28 2.1a19.9 19.9 0 0 0 6.02-3.05c.31-3.94-.53-7.36-2.52-10.4M8.68 13.05c-.83 0-1.5-.76-1.5-1.7s.66-1.7 1.5-1.7 1.51.76 1.5 1.7c0 .94-.66 1.7-1.5 1.7m6.65 0c-.83 0-1.5-.76-1.5-1.7s.66-1.7 1.5-1.7 1.51.76 1.5 1.7c0 .94-.66 1.7-1.5 1.7" />
+    </svg>
+  );
+}
 
 function useInView(threshold = 0.3) {
   const ref = useRef(null);
@@ -796,7 +810,7 @@ export default function App() {
                 <Github size={18} />
               </a>
               <a href="#" aria-label="Discord" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
-                <Discord size={18} />
+                <DiscordIcon size={18} />
               </a>
               <a href="https://www.instagram.com/char.les7756?stkn=MWJmdmViZjZlbjlsYg==" aria-label="Instagram" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Instagram size={18} />
@@ -893,7 +907,7 @@ export default function App() {
                 <Linkedin size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
                 <Github size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
                 <Instagram size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
-                <WhatsApp size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <WhatsAppIcon size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
               </div>
             </div>
           </div>

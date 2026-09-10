@@ -157,11 +157,11 @@ const PROJECTS = [
     image: "/health.jpg",
   },
   {
-    name: "Forge Fitness Club",
+    name: "PulseFit Fitness Club",
     category: "Gym & Membership Platform",
     stack: ["React", "Stripe", "Node.js"],
     color: "from-[#171717] to-[#080808]",
-    link: "#",
+    link: "https://uupm.cc/demo/fitness-gym",
     image: "/gym.jpg",
   },
   {

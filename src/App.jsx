@@ -197,11 +197,11 @@ const PROJECTS = [
     image: "/food1.jpg",
   },
   {
-    name: "Aurelia Capital",
-    category: "Fintech Platform",
+    name: "LexuEstate",
+    category: "Realestate Platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL"],
     color: "from-[#1a1a1a] to-[#0a0a0a]",
-    link: "#",
+    link: "https://uupm.cc/demo/real-estate",
     image: "/realestate.jpg",
   },
   {

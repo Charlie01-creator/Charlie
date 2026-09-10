@@ -794,8 +794,8 @@ export default function App() {
               <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Github size={18} />
               </a>
-              <a href="#" aria-label="GitHub" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
-                <Github size={18} />
+              <a href="#" aria-label="WhatsApp" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
+                <WhatsApp size={18} />
               </a>
               <a href="#" aria-label="Instagram" className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors">
                 <Instagram size={18} />
@@ -891,6 +891,8 @@ export default function App() {
                 <Twitter size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
                 <Linkedin size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
                 <Github size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <Instagram size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
+                <WhatsApp size={16} className="text-black/60 dark:text-[#B8B8B8] hover:text-[#D4AF37] transition-colors" />
               </div>
             </div>
           </div>

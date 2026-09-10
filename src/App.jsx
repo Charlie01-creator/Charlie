@@ -205,11 +205,11 @@ const PROJECTS = [
     image: "/realestate.jpg",
   },
   {
-    name: "Meridian Health",
-    category: "Enterprise Web App",
+    name: "Galerie Arts",
+    category: "Artwork Website",
     stack: ["React", "Node.js", "AWS"],
     color: "from-[#171717] to-[#080808]",
-    link: "#",
+    link: "https://uupm.cc/demo/nft-art-gallery",
     image: "/art.jpg",
   },
   {
